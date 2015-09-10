@@ -35,6 +35,7 @@ public class TreeCreator {
 
     public void CreateTree(String inputFileLocation,String midFilesFolderLocation, String outPutFilesFolderLocation, String rScriptLocation){
         logger.info("starting tree processing at " + new Date());
+        logger.info("starting input jason parsing at " + new Date());
         parseInputJSON(inputFileLocation);
         double[][] spearmanMatrix = createEdges(vertexList.size());
         String[] dates = createDatesArray();
@@ -52,6 +53,7 @@ public class TreeCreator {
             e.printStackTrace();
         }
         logger.info("seqtrak running finished at " + new Date());
+        logger.info("starting output processing at " + new Date());
         buildOutputJson(midFilesFolderLocation, outPutFilesFolderLocation);
         cleanFiles(midFilesFolderLocation);
         logger.info("finished at " + new Date());
@@ -60,7 +62,6 @@ public class TreeCreator {
     // parsing the .json input file to Vertexes
     // saved in vertexList
     public void parseInputJSON(String location){
-        logger.info("starting json parsing");
         JSONParser parser = new JSONParser();
         try {
 
@@ -167,7 +168,6 @@ public class TreeCreator {
 
     // generate .json file from seqTrak's results
     private void buildOutputJson(String midFilesFolderLocation, String outputFilesFolderLocation) {
-        logger.info("output json processing");
         String line;
         String splitBy = ",";
         JSONObject JSONFILE = new JSONObject();
