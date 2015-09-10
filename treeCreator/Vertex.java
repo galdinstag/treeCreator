@@ -18,13 +18,13 @@ public class Vertex {
     private String name;
     private List<String> symptoms;
 
-    public Vertex(String date, int id, String name){
+    public Vertex(String date, int id, String name, double longitude, double latitude){
         this.name = name;
         this.id = id;
         this.date = date;
         abundance = new ArrayList<Abundance>();
-        longitude = new Float(Math.random());
-        latitude =  new Float(Math.random());
+        this.longitude = new Float(longitude);
+        this.latitude =  new Float(latitude);
         symptoms = new ArrayList<String>();
     }
 

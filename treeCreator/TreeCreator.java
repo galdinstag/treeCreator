@@ -33,10 +33,11 @@ public class TreeCreator {
     // 4) write a .json file containing the tree.
     // 5) cleanup
 
-    public void CreateTree(String inputFileLocation,String midFilesFolderLocation, String outPutFilesFolderLocation, String rScriptLocation){
+    public void CreateTree(String inputFileLocation,String midFilesFolderLocation, String outPutFilesFolderLocation, String rScriptLocation,
+                           double fromLongitude, double toLongitude, double fromLatitude, double toLatitude){
         logger.info("starting tree processing at " + new Date());
         logger.info("starting input jason parsing at " + new Date());
-        parseInputJSON(inputFileLocation);
+        parseInputJSON(inputFileLocation,fromLongitude,toLongitude,fromLatitude,toLatitude);
         double[][] spearmanMatrix = createEdges(vertexList.size());
         String[] dates = createDatesArray();
         makeCSVFiles(spearmanMatrix, dates, midFilesFolderLocation);
@@ -61,7 +62,7 @@ public class TreeCreator {
 
     // parsing the .json input file to Vertexes
     // saved in vertexList
-    public void parseInputJSON(String location){
+    public void parseInputJSON(String location,double fromLongitude,double toLongitude,double fromLatitude,double toLatitude){
         JSONParser parser = new JSONParser();
         try {
 
@@ -75,7 +76,7 @@ public class TreeCreator {
             //iterate over samples
             while(iter.hasNext()){
                 JSONObject currSample = iter.next();
-                Vertex currVertex = new Vertex(((String) currSample.get("date")),counter, ((String) currSample.get("name")));
+                Vertex currVertex = new Vertex(((String) currSample.get("date")),counter, ((String) currSample.get("name")), (fromLongitude + Math.random()*(toLongitude-fromLongitude)), (fromLatitude + Math.random()*(toLatitude-fromLatitude)));
                 //iterate over symptoms
                 JSONArray symptoms = (JSONArray) currSample.get("symptoms");
                 Iterator<String> symptomIterator = symptoms.iterator();
