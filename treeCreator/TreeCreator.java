@@ -203,8 +203,8 @@ public class TreeCreator {
                 properties.put("symptoms",symptoms);
                 //add genes and abundances
                 JSONArray abundances = new JSONArray();
-                JSONObject currAbundance = new JSONObject();
                 for(Abundance abundance : currVertex.getAbundancesList()){
+                    JSONObject currAbundance = new JSONObject();
                     currAbundance.put("name",abundance.getGeneName());
                     currAbundance.put("abundance",abundance.getAbundance());
                     abundances.add(currAbundance);
@@ -292,8 +292,8 @@ public class TreeCreator {
     // clean all files on midFilesFolder
     private void cleanFiles(String midFilesFolderLocation) {
         try {
-            Files.delete(Paths.get(midFilesFolderLocation+"\\matrix.csv"));
-            //Files.delete(Paths.get(midFilesFolderLocation+"\\dates.csv"));
+            //Files.delete(Paths.get(midFilesFolderLocation+"\\matrix.csv"));
+            Files.delete(Paths.get(midFilesFolderLocation+"\\dates.csv"));
             //Files.delete(Paths.get(midFilesFolderLocation+"\\res.csv"));
         } catch (IOException e) {
             e.printStackTrace();
