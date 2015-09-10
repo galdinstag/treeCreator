@@ -300,12 +300,7 @@ public class TreeCreator {
             e.printStackTrace();
         }
     }
-   // for future use, if we can work with JRI
-    private void CreateTransmissionTree(double[][] spearmanMatrix, String[] dates) {
-
-
-    }
-
+   
     // aux function
     private void printDates(String[] dates) {
         StringBuilder str = new StringBuilder();
