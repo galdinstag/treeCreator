@@ -9,5 +9,6 @@ public class Main {
         //{input file, intermidiate files folder, output file folder, R script }
         tree.CreateTree("D:/Google_Drive/workspace/treeCreator/input/samples.json","D:/Google_Drive/workspace/treeCreator/midFiles"
                 , "D:/Google_Drive/workspace/treeCreator/output","D:/Google_Drive/workspace/treeCreator/src/SeqTrakTreeCreator.R");
+        System.out.print("test");
     }
 }
