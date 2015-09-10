@@ -45,7 +45,7 @@ public class Test {
 
     private static String generateRandomDate() {
         int[] year = {2010,2011,2012,2013,2014};
-        String date = new String("" + year[ThreadLocalRandom.current().nextInt(year.length)] + "-" + (ThreadLocalRandom.current().nextInt(11)+1) + "-" + (ThreadLocalRandom.current().nextInt(30)+1));
+        String date = new String("" + year[ThreadLocalRandom.current().nextInt(year.length)] + "-" + (ThreadLocalRandom.current().nextInt(11)+1) + "-" + (ThreadLocalRandom.current().nextInt(27)+1));
         return date;
     }
 }

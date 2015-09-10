@@ -192,9 +192,9 @@ public class TreeCreator {
             for(Vertex currVertex : vertexList) {
                 JSONObject currPoint = new JSONObject();
                 currPoint.put("type", "Feature");
-
                 JSONObject properties = new JSONObject();
                 properties.put("name",currVertex.getName());
+                properties.put("date",currVertex.getDate());
                 JSONArray symptoms = new JSONArray();
                 //add symptoms
                 for(String currSymptom : currVertex.getSymptomsList()){
@@ -292,8 +292,8 @@ public class TreeCreator {
     // clean all files on midFilesFolder
     private void cleanFiles(String midFilesFolderLocation) {
         try {
-            //Files.delete(Paths.get(midFilesFolderLocation+"\\matrix.csv"));
-            Files.delete(Paths.get(midFilesFolderLocation+"\\dates.csv"));
+            Files.delete(Paths.get(midFilesFolderLocation+"\\matrix.csv"));
+            //Files.delete(Paths.get(midFilesFolderLocation+"\\dates.csv"));
             //Files.delete(Paths.get(midFilesFolderLocation+"\\res.csv"));
         } catch (IOException e) {
             e.printStackTrace();
